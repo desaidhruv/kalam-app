@@ -6,39 +6,67 @@ import {
   Container,
   Stack,
   HStack,
-  Center,
-  chakra,
+  Flex,
+  Link,
+  Image
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { MdArrowForward } from 'react-icons/md';
+import Aswal from '../../media/Dr DK Aswal.PNG'
+import Sid from '../../media/Sid.PNG'
+import Jarred from '../../media/Jarred.PNG'
+import space from '../../media/space2.jpg'
 
 export const TimelineCard = ({ thedata }) => {
   const template = thedata.map(data => {
+    console.log(data.image)
+    console.log(data.id)
     return (
       <Box
         borderTopRadius="40px"
-        shadow="lg"
-        bg="white" 
-        h="420px"
-        w={{base:"75%",md:"420px"}}
+        shadow="0px 28px 60px rgb(0,0,0,15%)"
+        bg="white"
+        h={{ base: '390px', md: '490px' }}
+        w={{ base: '320px', md: '420px' }}
       >
-        <Box  borderTopRadius="40px" bg="rgb(225,72,149,25%)" h="60%"></Box>
+        <Box borderTopRadius="40px" bg="rgb(225,72,149,25%)" h="60%">
+          <Image src={data.image} />
+        </Box>
         <Box pl="25px" h="40%">
-          <Stack spacing="18px">
-            <Text fontFamily="Nunito" fontSize="18px" pt="8px">
+          <Stack spacing={{ base: '15px', md: '18px' }}>
+            <Text
+              fontFamily="Nunito"
+              fontSize={{ base: '15px', md: '18px' }}
+              pt="8px"
+            >
               {data.date}
             </Text>
             <Text>
-              <Heading fontSize="30px">{data.name}</Heading>
-              <Text key={data.id} fontFamily="Nunito" fontSize="15px">
+              <Heading fontSize={{ base: '20px', md: '30px' }}>
+                {data.name}
+              </Heading>
+              <Text
+                key={data.id}
+                fontFamily="Nunito"
+                fontSize={{ base: '10px', md: '15px' }}
+              >
                 {data.designation}
               </Text>
             </Text>
-            <HStack  cursor="pointer" color="gray.500" pb="5px">
-              <Text fontFamily="Nunito" fontSize="15px">
+            <HStack color="gray.500" pb="5px">
+              <Text
+                cursor="pointer"
+                fontFamily="Nunito"
+                fontSize={{ base: '10px', md: '15px' }}
+                as={Link}
+                href={data.link}
+              >
                 Learn more
               </Text>
-              <MdArrowForward fontSize="18px" />
+              <MdArrowForward
+                cursor="pointer"
+                fontSize={{ base: '15px', md: '18px' }}
+              />
             </HStack>
           </Stack>
         </Box>
@@ -59,70 +87,132 @@ export default function GridTimeline() {
       date: 'January 2021',
       name: 'Dr DK Aswal',
       designation: 'Director CSIR-CEERI and NPL',
+      link: 'https://www.youtube.com/watch?v=4VY86376Ff4',
+      image: Aswal
     },
     {
       id: 2,
       date: 'January 2021',
       name: 'Dr Matthew Green House',
       designation: 'Project Scientist at Goddard Flight Centre NASA , USA ',
+      link: 'https://www.youtube.com/watch?v=C6FPsbkO-Uo',
+      image: Sid
     },
     {
       id: 3,
       date: 'January 2021',
       name: 'Jarred Wilhite',
       designation: 'Engineer at Glen Research Centre NASA, USA',
+      link: 'https://www.youtube.com/watch?v=hLNZ0gG76L8',
+      image: Jarred
     },
   ]);
   const [otherinfo, setotherinfo] = useState([
     {
       id: 1,
       date: 'January 2021',
-      name: 'Dr DK Aswal',
-      designation: 'Director CSIR-CEERI and NPL',
+      name: 'Pramod Tanwar',
+      designation: 'Senior Scientist CSIR-CEERI',
+      link: 'https://www.youtube.com/watch?v=1C2alET4iRA',
+      image: space
     },
     {
       id: 2,
       date: 'January 2021',
-      name: 'Dr Matthew Green House',
-      designation: 'Project Scientist at Goddard Flight Centre NASA , USA ',
+      name: 'Dr Siddhartha Krishanmoorthy',
+      designation: 'Rocket Technologist, NASA JPL',
+      link: 'https://www.youtube.com/watch?v=MvlgfU_xC_0',
+      image: space
     },
     {
       id: 3,
       date: 'January 2021',
-      name: 'Jarred Wilhite',
-      designation: 'Engineer at Glen Research Centre NASA, USA',
+      name: 'Dr Graham Lau',
+      designation: 'Host of a NASA Show, Director of Marketing-Outreach Blue Marble Space, USA.',
+      link: 'https://www.youtube.com/watch?v=pfRcNDwBpIw',
+      image: space
     },
     {
       id: 4,
       date: 'January 2021',
-      name: 'Dr DK Aswal',
-      designation: 'Director CSIR-CEERI and NPL',
+      name: 'Anuradha Mathur',
+      designation: 'Co-Ordinator at Swayyam by Education Ministry of India.',
+      link: 'https://www.youtube.com/watch?v=PafEwPcIHww',
+      image: space
     },
     {
       id: 5,
       date: 'January 2021',
-      name: 'Dr Matthew Green House',
-      designation: 'Project Scientist at Goddard Flight Centre NASA , USA ',
+      name: 'Marina Ranga',
+      designation: 'Joint Research Centre, European Commission',
+      link: 'https://www.youtube.com/watch?v=elWDjxm-26U',
+      image: space
     },
     {
       id: 6,
       date: 'January 2021',
-      name: 'Jarred Wilhite',
-      designation: 'Engineer at Glen Research Centre NASA, USA',
+      name: 'Luc Piaton',
+      designation: 'CEO chez HAPPEE LEARNING',
+      link: 'https://www.youtube.com/watch?v=mw-MNwn7gX4',
+      image: space
+    },
+    {
+      id: 7,
+      date: 'January 2021',
+      name: 'Martin Hassler Hallstedt',
+      designation: 'PhD, Founder & CEO at Akribian (former Scientific EdTech)',
+      link: 'https://www.youtube.com/watch?v=elWDjxm-26U',
+      image: space
+    },
+    {
+      id: 8,
+      date: 'January 2021',
+      name: 'Dr Srihari Prakash Honwad',
+      designation: 'Vice Chancellor, SPSU',
+      link: 'https://www.youtube.com/watch?v=7qWWjQWbPMU',
+      image: space
+    },
+    {
+      id: 9,
+      date: 'January 2021',
+      name: 'Ekaterina Kologrivaya',
+      designation: 'Educational Researcher, Pecking University',
+      link: 'https://www.youtube.com/watch?v=elWDjxm-26U',
+      image: space
+    },
+    {
+      id: 10,
+      date: 'January 2021',
+      name: 'Sasi Kumar Nair',
+      designation: 'Solution Architect Nvidia',
+      link: 'https://www.youtube.com/watch?v=zFQK9Kn9Tog',
+      image: space
+    },
+    {
+      id: 11,
+      date: 'January 2021',
+      name: 'Manju Gupta',
+      designation: 'Principal Kothari International School',
+      link: 'https://www.youtube.com/watch?v=7qWWjQWbPMU',
+      image: space
     },
   ]);
   return (
-    <Box 
-    bg="linear-gradient(180deg, rgba(211,255,250,1) 0%, rgba(188,235,255,1) 26%, rgba(188,235,255,0) 100%)"
+    <Box
+      bg="linear-gradient(180deg, rgba(211,255,250,1) 0%, rgba(188,235,255,1) 26%, rgba(188,235,255,0) 100%) "
     >
-      <Container  maxWidth="90%">
+      <Container maxWidth="90%">
         <Box>
           <HStack align="center">
-            <Text fontSize="100px" color="#FF53A6">
+            <Text fontSize={{ base: '60px', md: '100px' }} color="#FF53A6">
               &#8226;
             </Text>
             <span></span>{' '}
-            <Text fontSize="40px" fontFamily="Nunito" fontWeight="700">
+            <Text
+              fontSize={{ base: '25px', md: '40px' }}
+              fontFamily="Nunito"
+              fontWeight="700"
+            >
               {topdate.january2020}
             </Text>
           </HStack>
@@ -130,13 +220,17 @@ export default function GridTimeline() {
             <TimelineCard thedata={info} />
           </SimpleGrid>
         </Box>
-        <Box pt="80px" mb="150px">
-          <HStack  align="center">
-            <Text fontSize="100px" color="#FF53A6">
+        <Box pt={{ base: '40px', md: '80px' }} mb="150px">
+          <HStack align="center">
+            <Text fontSize={{ base: '60px', md: '100px' }} color="#FF53A6">
               &#8226;
             </Text>
             <span></span>{' '}
-            <Text fontSize="40px" fontFamily="Nunito" fontWeight="700">
+            <Text
+              fontSize={{ base: '25px', md: '40px' }}
+              fontFamily="Nunito"
+              fontWeight="700"
+            >
               {topdate.january2021}
             </Text>
           </HStack>

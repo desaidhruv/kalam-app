@@ -49,7 +49,13 @@ export default function NavBar() {
         <DrawerContent>
           <DrawerHeader borderBottomWidth="1px">Menu</DrawerHeader>
           <DrawerBody>
-            <Button w="100%">About</Button>
+            <Button 
+              w="100%" 
+              as={ReLink}
+              to="/youtube"
+            >
+              Youtube
+            </Button>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
@@ -112,18 +118,16 @@ export default function NavBar() {
           </Text>
         </Button>
         <Button
-        as={ReLink}
-        to="/timeline"
+          as={ReLink}
+          to="/youtube"
           visibility={{ base: 'hidden', md: 'visible' }}
           colorScheme="light"
           variant="ghost"
           mr={{ base: '1px', md: '6' }}
           fontSize={{ base: '15', md: '20' }}
-          as={ReLink}
-          to="/timeline"
         >
           <Text style={{ textDecoration: 'none' }}>
-            About
+            Youtube
           </Text>
         </Button>
       </>

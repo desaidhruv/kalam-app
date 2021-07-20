@@ -32,7 +32,7 @@ function App() {
       <NavBar/>
         <Switch>
           <Route exact path="/join" component={pricing} />
-          <Route exact path="/timeline" component={Timeline} />
+          <Route exact path="/youtube" component={Timeline} />
           <Route  path="/" component={Home} />
         </Switch>
       </Router>

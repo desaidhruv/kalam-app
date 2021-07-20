@@ -45,7 +45,6 @@ export default function Uppermost() {
 
 
       <Image
-        border="red 2px solid"
         visibility={{ base: 'visible', md: 'hidden' }}
         position="absolute"
         h="600px"
